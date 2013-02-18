@@ -1,5 +1,5 @@
 {
-    "name": "choomz/amazon-mws-sdk",
+    "name": "boda2004/amazon-mws-sdk",
     "type": "library",
     "license": "Apache-2.0",
     "description": "Amazon MWS PHP SDK",
@@ -17,11 +17,11 @@
     },
 
     "autoload": {
-        "classmap": [ "search/" ]
+        "classmap": [ "search/", "orders/", "feeds/" ]
     },
 
     "target-dir": "",
-    
-    "include-path": ["search/src/"]
+
+    "include-path": ["search/src/", "orders/src/", "feeds/src/"]
 }
 
