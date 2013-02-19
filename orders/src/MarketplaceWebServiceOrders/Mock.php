@@ -18,7 +18,6 @@
 /**
  *  @see MarketplaceWebServiceOrders_Interface
  */
-require_once ('MarketplaceWebServiceOrders/Interface.php'); 
 
 /**
  * This contains the Order Retrieval API section of the Marketplace Web Service.
@@ -44,8 +43,7 @@ class  MarketplaceWebServiceOrders_Mock implements MarketplaceWebServiceOrders_I
      */
     public function listOrdersByNextToken($request) 
     {
-        require_once ('MarketplaceWebServiceOrders/Model/ListOrdersByNextTokenResponse.php');
-        return MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenResponse::fromXML($this->_invoke('ListOrdersByNextToken'));
+                return MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenResponse::fromXML($this->_invoke('ListOrdersByNextToken'));
     }
 
 
@@ -65,8 +63,7 @@ class  MarketplaceWebServiceOrders_Mock implements MarketplaceWebServiceOrders_I
      */
     public function listOrderItemsByNextToken($request) 
     {
-        require_once ('MarketplaceWebServiceOrders/Model/ListOrderItemsByNextTokenResponse.php');
-        return MarketplaceWebServiceOrders_Model_ListOrderItemsByNextTokenResponse::fromXML($this->_invoke('ListOrderItemsByNextToken'));
+                return MarketplaceWebServiceOrders_Model_ListOrderItemsByNextTokenResponse::fromXML($this->_invoke('ListOrderItemsByNextToken'));
     }
 
 
@@ -84,8 +81,7 @@ class  MarketplaceWebServiceOrders_Mock implements MarketplaceWebServiceOrders_I
      */
     public function getOrder($request) 
     {
-        require_once ('MarketplaceWebServiceOrders/Model/GetOrderResponse.php');
-        return MarketplaceWebServiceOrders_Model_GetOrderResponse::fromXML($this->_invoke('GetOrder'));
+                return MarketplaceWebServiceOrders_Model_GetOrderResponse::fromXML($this->_invoke('GetOrder'));
     }
 
 
@@ -104,8 +100,7 @@ class  MarketplaceWebServiceOrders_Mock implements MarketplaceWebServiceOrders_I
      */
     public function listOrderItems($request) 
     {
-        require_once ('MarketplaceWebServiceOrders/Model/ListOrderItemsResponse.php');
-        return MarketplaceWebServiceOrders_Model_ListOrderItemsResponse::fromXML($this->_invoke('ListOrderItems'));
+                return MarketplaceWebServiceOrders_Model_ListOrderItemsResponse::fromXML($this->_invoke('ListOrderItems'));
     }
 
 
@@ -123,8 +118,7 @@ class  MarketplaceWebServiceOrders_Mock implements MarketplaceWebServiceOrders_I
      */
     public function listOrders($request) 
     {
-        require_once ('MarketplaceWebServiceOrders/Model/ListOrdersResponse.php');
-        return MarketplaceWebServiceOrders_Model_ListOrdersResponse::fromXML($this->_invoke('ListOrders'));
+                return MarketplaceWebServiceOrders_Model_ListOrdersResponse::fromXML($this->_invoke('ListOrders'));
     }
 
 
@@ -143,8 +137,7 @@ class  MarketplaceWebServiceOrders_Mock implements MarketplaceWebServiceOrders_I
      */
     public function getServiceStatus($request) 
     {
-        require_once ('MarketplaceWebServiceOrders/Model/GetServiceStatusResponse.php');
-        return MarketplaceWebServiceOrders_Model_GetServiceStatusResponse::fromXML($this->_invoke('GetServiceStatus'));
+                return MarketplaceWebServiceOrders_Model_GetServiceStatusResponse::fromXML($this->_invoke('GetServiceStatus'));
     }
 
     // Private API ------------------------------------------------------------//

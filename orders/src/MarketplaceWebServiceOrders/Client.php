@@ -18,7 +18,6 @@
 /**
  *  @see MarketplaceWebServiceOrders_Interface
  */
-require_once ('MarketplaceWebServiceOrders/Interface.php');
 
 /**
  * This contains the Order Retrieval API section of the Marketplace Web Service.
@@ -217,11 +216,9 @@ class MarketplaceWebServiceOrders_Client implements MarketplaceWebServiceOrders_
     public function listOrdersByNextToken($request)
     {
         if (!$request instanceof MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenRequest) {
-            require_once ('MarketplaceWebServiceOrders/Model/ListOrdersByNextTokenRequest.php');
-            $request = new MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenRequest($request);
+                        $request = new MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenRequest($request);
         }
-        require_once ('MarketplaceWebServiceOrders/Model/ListOrdersByNextTokenResponse.php');
-        $httpResponse = $this->_invoke($this->_convertListOrdersByNextToken($request));
+                $httpResponse = $this->_invoke($this->_convertListOrdersByNextToken($request));
         $response = MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenResponse::fromXML($httpResponse['ResponseBody']);
         $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
         return $response;
@@ -246,11 +243,9 @@ class MarketplaceWebServiceOrders_Client implements MarketplaceWebServiceOrders_
     public function listOrderItemsByNextToken($request)
     {
         if (!$request instanceof MarketplaceWebServiceOrders_Model_ListOrderItemsByNextTokenRequest) {
-            require_once ('MarketplaceWebServiceOrders/Model/ListOrderItemsByNextTokenRequest.php');
-            $request = new MarketplaceWebServiceOrders_Model_ListOrderItemsByNextTokenRequest($request);
+                        $request = new MarketplaceWebServiceOrders_Model_ListOrderItemsByNextTokenRequest($request);
         }
-        require_once ('MarketplaceWebServiceOrders/Model/ListOrderItemsByNextTokenResponse.php');
-        $httpResponse = $this->_invoke($this->_convertListOrderItemsByNextToken($request));
+                $httpResponse = $this->_invoke($this->_convertListOrderItemsByNextToken($request));
         $response = MarketplaceWebServiceOrders_Model_ListOrderItemsByNextTokenResponse::fromXML($httpResponse['ResponseBody']);
         $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
         return $response;
@@ -273,11 +268,9 @@ class MarketplaceWebServiceOrders_Client implements MarketplaceWebServiceOrders_
     public function getOrder($request)
     {
         if (!$request instanceof MarketplaceWebServiceOrders_Model_GetOrderRequest) {
-            require_once ('MarketplaceWebServiceOrders/Model/GetOrderRequest.php');
-            $request = new MarketplaceWebServiceOrders_Model_GetOrderRequest($request);
+                        $request = new MarketplaceWebServiceOrders_Model_GetOrderRequest($request);
         }
-        require_once ('MarketplaceWebServiceOrders/Model/GetOrderResponse.php');
-        $httpResponse = $this->_invoke($this->_convertGetOrder($request));
+                $httpResponse = $this->_invoke($this->_convertGetOrder($request));
         $response = MarketplaceWebServiceOrders_Model_GetOrderResponse::fromXML($httpResponse['ResponseBody']);
         $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
         return $response;
@@ -301,11 +294,9 @@ class MarketplaceWebServiceOrders_Client implements MarketplaceWebServiceOrders_
     public function listOrderItems($request)
     {
         if (!$request instanceof MarketplaceWebServiceOrders_Model_ListOrderItemsRequest) {
-            require_once ('MarketplaceWebServiceOrders/Model/ListOrderItemsRequest.php');
-            $request = new MarketplaceWebServiceOrders_Model_ListOrderItemsRequest($request);
+                        $request = new MarketplaceWebServiceOrders_Model_ListOrderItemsRequest($request);
         }
-        require_once ('MarketplaceWebServiceOrders/Model/ListOrderItemsResponse.php');
-        $httpResponse = $this->_invoke($this->_convertListOrderItems($request));
+                $httpResponse = $this->_invoke($this->_convertListOrderItems($request));
         $response = MarketplaceWebServiceOrders_Model_ListOrderItemsResponse::fromXML($httpResponse['ResponseBody']);
         $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
         return $response;
@@ -328,11 +319,9 @@ class MarketplaceWebServiceOrders_Client implements MarketplaceWebServiceOrders_
     public function listOrders($request)
     {
         if (!$request instanceof MarketplaceWebServiceOrders_Model_ListOrdersRequest) {
-            require_once ('MarketplaceWebServiceOrders/Model/ListOrdersRequest.php');
-            $request = new MarketplaceWebServiceOrders_Model_ListOrdersRequest($request);
+                        $request = new MarketplaceWebServiceOrders_Model_ListOrdersRequest($request);
         }
-        require_once ('MarketplaceWebServiceOrders/Model/ListOrdersResponse.php');
-        $httpResponse = $this->_invoke($this->_convertListOrders($request));
+                $httpResponse = $this->_invoke($this->_convertListOrders($request));
         $response = MarketplaceWebServiceOrders_Model_ListOrdersResponse::fromXML($httpResponse['ResponseBody']);
         $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
         return $response;
@@ -356,11 +345,9 @@ class MarketplaceWebServiceOrders_Client implements MarketplaceWebServiceOrders_
     public function getServiceStatus($request)
     {
         if (!$request instanceof MarketplaceWebServiceOrders_Model_GetServiceStatusRequest) {
-            require_once ('MarketplaceWebServiceOrders/Model/GetServiceStatusRequest.php');
-            $request = new MarketplaceWebServiceOrders_Model_GetServiceStatusRequest($request);
+                        $request = new MarketplaceWebServiceOrders_Model_GetServiceStatusRequest($request);
         }
-        require_once ('MarketplaceWebServiceOrders/Model/GetServiceStatusResponse.php');
-        $httpResponse = $this->_invoke($this->_convertGetServiceStatus($request));
+                $httpResponse = $this->_invoke($this->_convertGetServiceStatus($request));
         $response = MarketplaceWebServiceOrders_Model_GetServiceStatusResponse::fromXML($httpResponse['ResponseBody']);
         $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
         return $response;
@@ -400,8 +387,7 @@ class MarketplaceWebServiceOrders_Client implements MarketplaceWebServiceOrders_
                         } else {
                             if ($response['Status'] === 500 || $response['Status'] === 503) {
                             	
-                            	require_once('MarketplaceWebServiceOrders/Model/ErrorResponse.php');
-                            	$errorResponse = MarketplaceWebServiceOrders_Model_ErrorResponse::fromXML($response['ResponseBody']);
+                            	                            	$errorResponse = MarketplaceWebServiceOrders_Model_ErrorResponse::fromXML($response['ResponseBody']);
                             	
                             	$errors = $errorResponse->getError();
                             	$shouldRetry = ($errors[0]->getCode() === 'RequestThrottled') ? false : true;
@@ -417,12 +403,10 @@ class MarketplaceWebServiceOrders_Client implements MarketplaceWebServiceOrders_
                        }
                 /* Rethrow on deserializer error */
                 } catch (Exception $e) {
-                    require_once ('MarketplaceWebServiceOrders/Exception.php');
-                    if ($e instanceof MarketplaceWebServiceOrders_Exception) {
+                                        if ($e instanceof MarketplaceWebServiceOrders_Exception) {
                         throw $e;
                     } else {
-                        require_once ('MarketplaceWebServiceOrders/Exception.php');
-                        throw new MarketplaceWebServiceOrders_Exception(array('Exception' => $e, 'Message' => $e->getMessage()));
+                                                throw new MarketplaceWebServiceOrders_Exception(array('Exception' => $e, 'Message' => $e->getMessage()));
                     }
                 }
 
@@ -451,8 +435,7 @@ class MarketplaceWebServiceOrders_Client implements MarketplaceWebServiceOrders_
                 $code = $errorMatcherOne[2];
                 $message = $errorMatcherOne[3];
 
-                require_once ('MarketplaceWebServiceOrders/Exception.php');
-                $ex = new MarketplaceWebServiceOrders_Exception(array ('Message' => $message, 'StatusCode' => $status, 'ErrorCode' => $code,
+                                $ex = new MarketplaceWebServiceOrders_Exception(array ('Message' => $message, 'StatusCode' => $status, 'ErrorCode' => $code,
                                                            'ErrorType' => 'Unknown', 'RequestId' => $requestId, 'XML' => $responseBody,
                                                            'ResponseHeaderMetadata' => $responseHeaderMetadata));
 
@@ -462,8 +445,7 @@ class MarketplaceWebServiceOrders_Client implements MarketplaceWebServiceOrders_
                 $code = $errorMatcherTwo[1];
                 $message = $errorMatcherTwo[2];
                 $requestId = $errorMatcherTwo[4];
-                require_once ('MarketplaceWebServiceOrders/Exception.php');
-                $ex = new MarketplaceWebServiceOrders_Exception(array ('Message' => $message, 'StatusCode' => $status, 'ErrorCode' => $code,
+                                $ex = new MarketplaceWebServiceOrders_Exception(array ('Message' => $message, 'StatusCode' => $status, 'ErrorCode' => $code,
                                                               'ErrorType' => 'Unknown', 'RequestId' => $requestId, 'XML' => $responseBody,
                                                               'ResponseHeaderMetadata' => $responseHeaderMetadata));
             } elseif (preg_match('@<Error>.*<Type>(.*)</Type>.*<Code>(.*)</Code>.*<Message>(.*)</Message>.*</Error>.*(<Error>)?.*<RequestId>(.*)</RequestId>@mi',
@@ -473,18 +455,15 @@ class MarketplaceWebServiceOrders_Client implements MarketplaceWebServiceOrders_
                 $code = $errorMatcherThree[2];
                 $message = $errorMatcherThree[3];
                 $requestId = $errorMatcherThree[5];
-                require_once ('MarketplaceWebServiceOrders/Exception.php');
-                $ex = new MarketplaceWebServiceOrders_Exception(array ('Message' => $message, 'StatusCode' => $status, 'ErrorCode' => $code,
+                                $ex = new MarketplaceWebServiceOrders_Exception(array ('Message' => $message, 'StatusCode' => $status, 'ErrorCode' => $code,
                                                               'ErrorType' => $type, 'RequestId' => $requestId, 'XML' => $responseBody,
                                                               'ResponseHeaderMetadata' => $responseHeaderMetadata));
 
             } else {
-                require_once ('MarketplaceWebServiceOrders/Exception.php');
-                $ex = new MarketplaceWebServiceOrders_Exception(array('Message' => 'Internal Error', 'StatusCode' => $status, 'ResponseHeaderMetadata' => $responseHeaderMetadata));
+                                $ex = new MarketplaceWebServiceOrders_Exception(array('Message' => 'Internal Error', 'StatusCode' => $status, 'ResponseHeaderMetadata' => $responseHeaderMetadata));
             }
         } else {
-            require_once ('MarketplaceWebServiceOrders/Exception.php');
-            $ex = new MarketplaceWebServiceOrders_Exception(array('Message' => 'Internal Error', 'StatusCode' => $status, 'ResponseHeaderMetadata' => $responseHeaderMetadata));
+                        $ex = new MarketplaceWebServiceOrders_Exception(array('Message' => 'Internal Error', 'StatusCode' => $status, 'ResponseHeaderMetadata' => $responseHeaderMetadata));
         }
         return $ex;
     }
@@ -551,8 +530,7 @@ class MarketplaceWebServiceOrders_Client implements MarketplaceWebServiceOrders_
           }
             
         }
-        require_once('MarketplaceWebServiceOrders/Model/ResponseHeaderMetadata.php');
-        $responseHeaderMetadata = new MarketplaceWebServiceOrders_Model_ResponseHeaderMetadata(
+                $responseHeaderMetadata = new MarketplaceWebServiceOrders_Model_ResponseHeaderMetadata(
           $headers['x-mws-request-id'],
           $headers['x-mws-response-context'],
           $headers['x-mws-timestamp']);
@@ -573,8 +551,7 @@ class MarketplaceWebServiceOrders_Client implements MarketplaceWebServiceOrders_
             $delay = (int) (pow(4, $retries) * 100000) ;
             usleep($delay);
         } else {
-            require_once ('MarketplaceWebServiceOrders/Exception.php');
-            throw new MarketplaceWebServiceOrders_Exception (array ('Message' => "Maximum number of retry attempts reached :  $retries", 'StatusCode' => $status));
+                        throw new MarketplaceWebServiceOrders_Exception (array ('Message' => "Maximum number of retry attempts reached :  $retries", 'StatusCode' => $status));
         }
     }
 

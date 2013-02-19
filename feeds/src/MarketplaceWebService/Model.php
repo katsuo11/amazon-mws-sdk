@@ -167,8 +167,7 @@ abstract class MarketplaceWebService_Model
                 if ($this->isComplexType($fieldType[0])) {
                     $elements = $xpath->query("./a:$fieldName", $dom);
                     if ($elements->length >= 1) {
-                        require_once (str_replace('_', DIRECTORY_SEPARATOR, $fieldType[0]) . ".php");
-                        foreach ($elements as $element) {
+                                                foreach ($elements as $element) {
                             $this->fields[$fieldName]['FieldValue'][] = new $fieldType[0]($element);
                         }
                     } 
@@ -185,8 +184,7 @@ abstract class MarketplaceWebService_Model
                 if ($this->isComplexType($fieldType)) {
                     $elements = $xpath->query("./a:$fieldName", $dom);
                     if ($elements->length == 1) {
-                        require_once (str_replace('_', DIRECTORY_SEPARATOR, $fieldType) . ".php");
-                        $this->fields[$fieldName]['FieldValue'] = new $fieldType($elements->item(0));
+                                                $this->fields[$fieldName]['FieldValue'] = new $fieldType($elements->item(0));
                     }   
                 } else {
                     $element = $xpath->query("./a:$fieldName/text()", $dom);
@@ -231,8 +229,7 @@ abstract class MarketplaceWebService_Model
                             $elements =  array($elements);    
                         }
                         if (count ($elements) >= 1) {
-                            require_once (str_replace('_', DIRECTORY_SEPARATOR, $fieldType[0]) . ".php");
-                            foreach ($elements as $element) {
+                                                        foreach ($elements as $element) {
                                 $this->fields[$fieldName]['FieldValue'][] = new $fieldType[0]($element);
                             }
                         }
@@ -253,8 +250,7 @@ abstract class MarketplaceWebService_Model
             } else {
                 if ($this->isComplexType($fieldType)) {
                     if (array_key_exists($fieldName, $array)) {
-                        require_once (str_replace('_', DIRECTORY_SEPARATOR, $fieldType) . ".php");
-                        $this->fields[$fieldName]['FieldValue'] = new $fieldType($array[$fieldName]);
+                                                $this->fields[$fieldName]['FieldValue'] = new $fieldType($array[$fieldName]);
                     }   
                 } else {
                     if (array_key_exists($fieldName, $array)) {

@@ -17,11 +17,11 @@
     },
 
     "autoload": {
-        "classmap": [ "search/", "orders/", "feeds/" ]
-    },
-
-    "target-dir": "",
-
-    "include-path": ["search/src/", "orders/src/", "feeds/src/"]
+        "psr-0": {
+            "MarketplaceWebService": "feeds/src",
+            "MarketplaceWebServiceOrders": "orders/src",
+            "MarketplaceWebServiceProducts": "search/src"
+        }
+    }
 }
 

@@ -19,7 +19,6 @@
 /**
  *  @see MarketplaceWebService_Interface
  */
-require_once ('MarketplaceWebService/Interface.php'); 
 
 /**
  * The Amazon Marketplace Web Service contain APIs for inventory and order management.
@@ -45,8 +44,7 @@ class  MarketplaceWebService_Mock implements MarketplaceWebService_Interface
      */
     public function getReport($request) 
     {
-        require_once ('MarketplaceWebService/Model/GetReportResponse.php');
-        return MarketplaceWebService_Model_GetReportResponse::fromXML($this->invoke('GetReport'));
+                return MarketplaceWebService_Model_GetReportResponse::fromXML($this->invoke('GetReport'));
     }
 
 
@@ -64,8 +62,7 @@ class  MarketplaceWebService_Mock implements MarketplaceWebService_Interface
      */
     public function getReportScheduleCount($request) 
     {
-        require_once ('MarketplaceWebService/Model/GetReportScheduleCountResponse.php');
-        return MarketplaceWebService_Model_GetReportScheduleCountResponse::fromXML($this->invoke('GetReportScheduleCount'));
+                return MarketplaceWebService_Model_GetReportScheduleCountResponse::fromXML($this->invoke('GetReportScheduleCount'));
     }
 
 
@@ -83,8 +80,7 @@ class  MarketplaceWebService_Mock implements MarketplaceWebService_Interface
      */
     public function getReportRequestListByNextToken($request) 
     {
-        require_once ('MarketplaceWebService/Model/GetReportRequestListByNextTokenResponse.php');
-        return MarketplaceWebService_Model_GetReportRequestListByNextTokenResponse::fromXML($this->invoke('GetReportRequestListByNextToken'));
+                return MarketplaceWebService_Model_GetReportRequestListByNextTokenResponse::fromXML($this->invoke('GetReportRequestListByNextToken'));
     }
 
 
@@ -102,8 +98,7 @@ class  MarketplaceWebService_Mock implements MarketplaceWebService_Interface
      */
     public function updateReportAcknowledgements($request) 
     {
-        require_once ('MarketplaceWebService/Model/UpdateReportAcknowledgementsResponse.php');
-        return MarketplaceWebService_Model_UpdateReportAcknowledgementsResponse::fromXML($this->invoke('UpdateReportAcknowledgements'));
+                return MarketplaceWebService_Model_UpdateReportAcknowledgementsResponse::fromXML($this->invoke('UpdateReportAcknowledgements'));
     }
 
 
@@ -125,8 +120,7 @@ class  MarketplaceWebService_Mock implements MarketplaceWebService_Interface
      */
     public function submitFeed($request) 
     {
-        require_once ('MarketplaceWebService/Model/SubmitFeedResponse.php');
-        return MarketplaceWebService_Model_SubmitFeedResponse::fromXML($this->invoke('SubmitFeed'));
+                return MarketplaceWebService_Model_SubmitFeedResponse::fromXML($this->invoke('SubmitFeed'));
     }
 
 
@@ -146,8 +140,7 @@ class  MarketplaceWebService_Mock implements MarketplaceWebService_Interface
      */
     public function getReportCount($request) 
     {
-        require_once ('MarketplaceWebService/Model/GetReportCountResponse.php');
-        return MarketplaceWebService_Model_GetReportCountResponse::fromXML($this->invoke('GetReportCount'));
+                return MarketplaceWebService_Model_GetReportCountResponse::fromXML($this->invoke('GetReportCount'));
     }
 
 
@@ -165,8 +158,7 @@ class  MarketplaceWebService_Mock implements MarketplaceWebService_Interface
      */
     public function getFeedSubmissionListByNextToken($request) 
     {
-        require_once ('MarketplaceWebService/Model/GetFeedSubmissionListByNextTokenResponse.php');
-        return MarketplaceWebService_Model_GetFeedSubmissionListByNextTokenResponse::fromXML($this->invoke('GetFeedSubmissionListByNextToken'));
+                return MarketplaceWebService_Model_GetFeedSubmissionListByNextTokenResponse::fromXML($this->invoke('GetFeedSubmissionListByNextToken'));
     }
 
 
@@ -185,8 +177,7 @@ class  MarketplaceWebService_Mock implements MarketplaceWebService_Interface
      */
     public function cancelFeedSubmissions($request) 
     {
-        require_once ('MarketplaceWebService/Model/CancelFeedSubmissionsResponse.php');
-        return MarketplaceWebService_Model_CancelFeedSubmissionsResponse::fromXML($this->invoke('CancelFeedSubmissions'));
+                return MarketplaceWebService_Model_CancelFeedSubmissionsResponse::fromXML($this->invoke('CancelFeedSubmissions'));
     }
 
 
@@ -204,8 +195,7 @@ class  MarketplaceWebService_Mock implements MarketplaceWebService_Interface
      */
     public function requestReport($request) 
     {
-        require_once ('MarketplaceWebService/Model/RequestReportResponse.php');
-        return MarketplaceWebService_Model_RequestReportResponse::fromXML($this->invoke('RequestReport'));
+                return MarketplaceWebService_Model_RequestReportResponse::fromXML($this->invoke('RequestReport'));
     }
 
 
@@ -223,8 +213,7 @@ class  MarketplaceWebService_Mock implements MarketplaceWebService_Interface
      */
     public function getFeedSubmissionCount($request) 
     {
-        require_once ('MarketplaceWebService/Model/GetFeedSubmissionCountResponse.php');
-        return MarketplaceWebService_Model_GetFeedSubmissionCountResponse::fromXML($this->invoke('GetFeedSubmissionCount'));
+                return MarketplaceWebService_Model_GetFeedSubmissionCountResponse::fromXML($this->invoke('GetFeedSubmissionCount'));
     }
 
 
@@ -243,8 +232,7 @@ class  MarketplaceWebService_Mock implements MarketplaceWebService_Interface
      */
     public function cancelReportRequests($request) 
     {
-        require_once ('MarketplaceWebService/Model/CancelReportRequestsResponse.php');
-        return MarketplaceWebService_Model_CancelReportRequestsResponse::fromXML($this->invoke('CancelReportRequests'));
+                return MarketplaceWebService_Model_CancelReportRequestsResponse::fromXML($this->invoke('CancelReportRequests'));
     }
 
 
@@ -263,8 +251,7 @@ class  MarketplaceWebService_Mock implements MarketplaceWebService_Interface
      */
     public function getReportList($request) 
     {
-        require_once ('MarketplaceWebService/Model/GetReportListResponse.php');
-        return MarketplaceWebService_Model_GetReportListResponse::fromXML($this->invoke('GetReportList'));
+                return MarketplaceWebService_Model_GetReportListResponse::fromXML($this->invoke('GetReportList'));
     }
 
 
@@ -282,8 +269,7 @@ class  MarketplaceWebService_Mock implements MarketplaceWebService_Interface
      */
     public function getFeedSubmissionResult($request) 
     {
-        require_once ('MarketplaceWebService/Model/GetFeedSubmissionResultResponse.php');
-        return MarketplaceWebService_Model_GetFeedSubmissionResultResponse::fromXML($this->invoke('GetFeedSubmissionResult'));
+                return MarketplaceWebService_Model_GetFeedSubmissionResultResponse::fromXML($this->invoke('GetFeedSubmissionResult'));
     }
 
 
@@ -301,8 +287,7 @@ class  MarketplaceWebService_Mock implements MarketplaceWebService_Interface
      */
     public function getFeedSubmissionList($request) 
     {
-        require_once ('MarketplaceWebService/Model/GetFeedSubmissionListResponse.php');
-        return MarketplaceWebService_Model_GetFeedSubmissionListResponse::fromXML($this->invoke('GetFeedSubmissionList'));
+                return MarketplaceWebService_Model_GetFeedSubmissionListResponse::fromXML($this->invoke('GetFeedSubmissionList'));
     }
 
 
@@ -320,8 +305,7 @@ class  MarketplaceWebService_Mock implements MarketplaceWebService_Interface
      */
     public function getReportRequestList($request) 
     {
-        require_once ('MarketplaceWebService/Model/GetReportRequestListResponse.php');
-        return MarketplaceWebService_Model_GetReportRequestListResponse::fromXML($this->invoke('GetReportRequestList'));
+                return MarketplaceWebService_Model_GetReportRequestListResponse::fromXML($this->invoke('GetReportRequestList'));
     }
 
 
@@ -339,8 +323,7 @@ class  MarketplaceWebService_Mock implements MarketplaceWebService_Interface
      */
     public function getReportScheduleListByNextToken($request) 
     {
-        require_once ('MarketplaceWebService/Model/GetReportScheduleListByNextTokenResponse.php');
-        return MarketplaceWebService_Model_GetReportScheduleListByNextTokenResponse::fromXML($this->invoke('GetReportScheduleListByNextToken'));
+                return MarketplaceWebService_Model_GetReportScheduleListByNextTokenResponse::fromXML($this->invoke('GetReportScheduleListByNextToken'));
     }
 
 
@@ -358,8 +341,7 @@ class  MarketplaceWebService_Mock implements MarketplaceWebService_Interface
      */
     public function getReportListByNextToken($request) 
     {
-        require_once ('MarketplaceWebService/Model/GetReportListByNextTokenResponse.php');
-        return MarketplaceWebService_Model_GetReportListByNextTokenResponse::fromXML($this->invoke('GetReportListByNextToken'));
+                return MarketplaceWebService_Model_GetReportListByNextTokenResponse::fromXML($this->invoke('GetReportListByNextToken'));
     }
 
 
@@ -378,8 +360,7 @@ class  MarketplaceWebService_Mock implements MarketplaceWebService_Interface
      */
     public function manageReportSchedule($request) 
     {
-        require_once ('MarketplaceWebService/Model/ManageReportScheduleResponse.php');
-        return MarketplaceWebService_Model_ManageReportScheduleResponse::fromXML($this->invoke('ManageReportSchedule'));
+                return MarketplaceWebService_Model_ManageReportScheduleResponse::fromXML($this->invoke('ManageReportSchedule'));
     }
 
 
@@ -398,8 +379,7 @@ class  MarketplaceWebService_Mock implements MarketplaceWebService_Interface
      */
     public function getReportRequestCount($request) 
     {
-        require_once ('MarketplaceWebService/Model/GetReportRequestCountResponse.php');
-        return MarketplaceWebService_Model_GetReportRequestCountResponse::fromXML($this->invoke('GetReportRequestCount'));
+                return MarketplaceWebService_Model_GetReportRequestCountResponse::fromXML($this->invoke('GetReportRequestCount'));
     }
 
 
@@ -417,8 +397,7 @@ class  MarketplaceWebService_Mock implements MarketplaceWebService_Interface
      */
     public function getReportScheduleList($request) 
     {
-        require_once ('MarketplaceWebService/Model/GetReportScheduleListResponse.php');
-        return MarketplaceWebService_Model_GetReportScheduleListResponse::fromXML($this->invoke('GetReportScheduleList'));
+                return MarketplaceWebService_Model_GetReportScheduleListResponse::fromXML($this->invoke('GetReportScheduleList'));
     }
 
     // Private API ------------------------------------------------------------//

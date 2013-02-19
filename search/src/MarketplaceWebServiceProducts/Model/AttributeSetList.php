@@ -18,7 +18,6 @@
 /**
  *  @see MarketplaceWebServiceProducts_Model
  */
-require_once ('MarketplaceWebServiceProducts/Model.php');  
 
 
 
