@@ -20,7 +20,10 @@
         "psr-0": {
             "MarketplaceWebService": "feeds/src",
             "MarketplaceWebServiceOrders": "orders/src",
-            "MarketplaceWebServiceProducts": "search/src"
+            "MarketplaceWebServiceProducts": "search/src",
+            "MwsFeedsClient": "feeds",
+            "MwsOrdersClient": "orders",
+            "MwsSearchClient": "search"
         }
     }
 }
