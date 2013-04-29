@@ -1,5 +1,5 @@
 {
-    "name": "boda2004/amazon-mws-sdk",
+    "name": "katsuo11/amazon-mws-sdk",
     "type": "library",
     "license": "Apache-2.0",
     "description": "Amazon MWS PHP SDK",
@@ -21,9 +21,11 @@
             "MarketplaceWebService": "feeds/src",
             "MarketplaceWebServiceOrders": "orders/src",
             "MarketplaceWebServiceProducts": "search/src",
+            "FBAInventoryServiceMWS": "inventory/src",
             "MwsFeedsClient": "feeds",
             "MwsOrdersClient": "orders",
-            "MwsSearchClient": "search"
+            "MwsSearchClient": "search",
+            "MwsInventoryClient": "inventory"
         }
     }
 }
