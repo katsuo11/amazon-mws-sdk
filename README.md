@@ -22,3 +22,5 @@ This tells amazon to send the request with your application version for the serv
 I added a `SERVICE_VERSION` constant and replaced line 87 by:
 	
 	$this->_serviceVersion = self::SERVICE_VERSION;
+	
+Reported [here](https://sellercentral.amazon.com/forums/thread.jspa?messageID=2430689&#2430689)
