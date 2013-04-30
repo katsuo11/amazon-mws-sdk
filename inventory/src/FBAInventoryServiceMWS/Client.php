@@ -53,6 +53,8 @@ class FBAInventoryServiceMWS_Client implements FBAInventoryServiceMWS_Interface
 
     const REQUEST_TYPE = "POST";
 
+    const SERVICE_VERSION = '2010-10-01';
+
     const MWS_CLIENT_VERSION = "2012-09-28";
 
     /**
@@ -83,7 +85,7 @@ class FBAInventoryServiceMWS_Client implements FBAInventoryServiceMWS_Interface
 
         $this->_awsAccessKeyId = $awsAccessKeyId;
         $this->_awsSecretAccessKey = $awsSecretAccessKey;
-        $this->_serviceVersion = $applicationVersion;
+        $this->_serviceVersion = self::SERVICE_VERSION;
         if (!is_null($config)) $this->_config = array_merge($this->_config, $config);
         $this->setUserAgentHeader($applicationName, $applicationVersion, $attributes);
     }
