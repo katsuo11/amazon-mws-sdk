@@ -18,7 +18,6 @@
 /**
  *  @see MarketplaceWebServiceProducts_Interface
  */
-require_once ('MarketplaceWebServiceProducts/Interface.php');
 
 /**
  * This is the Products API section of the Marketplace Web Service.
@@ -73,7 +72,7 @@ class MarketplaceWebServiceProducts_Client implements MarketplaceWebServiceProdu
 
         $this->_awsAccessKeyId = $awsAccessKeyId;
         $this->_awsSecretAccessKey = $awsSecretAccessKey;
-        if (!is_null($config)) $this->_config = array_merge($this->_config, $config);
+        if (!empty($config)) $this->_config = array_merge($this->_config, $config);
         $this->setUserAgentHeader($applicationName, $applicationVersion);
     }
     
@@ -301,10 +300,8 @@ class MarketplaceWebServiceProducts_Client implements MarketplaceWebServiceProdu
     public function getMatchingProductForId($request)
     {
         if (!$request instanceof MarketplaceWebServiceProducts_Model_GetMatchingProductForIdRequest) {
-            require_once ('MarketplaceWebServiceProducts/Model/GetMatchingProductForIdRequest.php');
             $request = new MarketplaceWebServiceProducts_Model_GetMatchingProductForIdRequest($request);
         }
-        require_once ('MarketplaceWebServiceProducts/Model/GetMatchingProductForIdResponse.php');
         $httpResponse = $this->_invoke($this->_convertGetMatchingProductForId($request));
         $response = MarketplaceWebServiceProducts_Model_GetMatchingProductForIdResponse::fromXML($httpResponse['ResponseBody']);
         $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
@@ -569,7 +566,7 @@ class MarketplaceWebServiceProducts_Client implements MarketplaceWebServiceProdu
                         } else {
                             if ($response['Status'] === 500 || $response['Status'] === 503) {
                             	
-                            	require_once('MarketplaceWebServiceProducts/Model/ErrorResponse.php');
+
                             	$errorResponse = MarketplaceWebServiceProducts_Model_ErrorResponse::fromXML($response['ResponseBody']);
                             	
                             	$errors = $errorResponse->getError();
@@ -586,7 +583,7 @@ class MarketplaceWebServiceProducts_Client implements MarketplaceWebServiceProdu
                        }
                 /* Rethrow on deserializer error */
                 } catch (Exception $e) {
-                    require_once ('MarketplaceWebServiceProducts/Exception.php');
+
                     if ($e instanceof MarketplaceWebServiceProducts_Exception) {
                         throw $e;
                     } else {
@@ -631,7 +628,7 @@ class MarketplaceWebServiceProducts_Client implements MarketplaceWebServiceProdu
                 $code = $errorMatcherTwo[1];
                 $message = $errorMatcherTwo[2];
                 $requestId = $errorMatcherTwo[4];
-                require_once ('MarketplaceWebServiceProducts/Exception.php');
+
                 $ex = new MarketplaceWebServiceProducts_Exception(array ('Message' => $message, 'StatusCode' => $status, 'ErrorCode' => $code,
                                                               'ErrorType' => 'Unknown', 'RequestId' => $requestId, 'XML' => $responseBody,
                                                               'ResponseHeaderMetadata' => $responseHeaderMetadata));
@@ -648,16 +645,13 @@ class MarketplaceWebServiceProducts_Client implements MarketplaceWebServiceProdu
                                                               'ResponseHeaderMetadata' => $responseHeaderMetadata));
 
             } else {
-                require_once ('MarketplaceWebServiceProducts/Exception.php');
                 $ex = new MarketplaceWebServiceProducts_Exception(array('Message' => 'Internal Error', 'StatusCode' => $status, 'ResponseHeaderMetadata' => $responseHeaderMetadata));
             }
         } else {
-            require_once ('MarketplaceWebServiceProducts/Exception.php');
             $ex = new MarketplaceWebServiceProducts_Exception(array('Message' => 'Internal Error', 'StatusCode' => $status, 'ResponseHeaderMetadata' => $responseHeaderMetadata));
         }
         return $ex;
     }
-
 
 
     /**
@@ -678,11 +672,11 @@ class MarketplaceWebServiceProducts_Client implements MarketplaceWebServiceProdu
         switch ($url['scheme']) {
             case 'https':
                 $scheme = 'https://';
-                $port = $port === null ? 443 : $port;
+                $port = @$port === null ? 443 : $port;
                 break;
             default:
                 $scheme = 'http://';
-                $port = $port === null ? 80 : $port;
+                $port = @$port === null ? 80 : $port;
         }
 
         $ch = curl_init();
@@ -719,7 +713,6 @@ class MarketplaceWebServiceProducts_Client implements MarketplaceWebServiceProdu
             
         }
  
-        require_once('MarketplaceWebServiceProducts/Model/ResponseHeaderMetadata.php');
         $responseHeaderMetadata = new MarketplaceWebServiceProducts_Model_ResponseHeaderMetadata(
           $headers['x-mws-request-id'],
           $headers['x-mws-response-context'],
@@ -741,7 +734,7 @@ class MarketplaceWebServiceProducts_Client implements MarketplaceWebServiceProdu
             $delay = (int) (pow(4, $retries) * 100000) ;
             usleep($delay);
         } else {
-            require_once ('MarketplaceWebServiceProducts/Exception.php');
+
             throw new MarketplaceWebServiceProducts_Exception (array ('Message' => "Maximum number of retry attempts reached :  $retries", 'StatusCode' => $status));
         }
     }
@@ -1174,3 +1167,4 @@ class MarketplaceWebServiceProducts_Client implements MarketplaceWebServiceProdu
         
                                                                                                                                                                                                                                                                 
 }
+
