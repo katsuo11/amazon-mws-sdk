@@ -474,10 +474,8 @@ class MarketplaceWebServiceProducts_Client implements MarketplaceWebServiceProdu
     public function getMyPriceForASIN($request)
     {
         if (!$request instanceof MarketplaceWebServiceProducts_Model_GetMyPriceForASINRequest) {
-            require_once ('MarketplaceWebServiceProducts/Model/GetMyPriceForASINRequest.php');
             $request = new MarketplaceWebServiceProducts_Model_GetMyPriceForASINRequest($request);
         }
-        require_once ('MarketplaceWebServiceProducts/Model/GetMyPriceForASINResponse.php');
         $httpResponse = $this->_invoke($this->_convertGetMyPriceForASIN($request));
         $response = MarketplaceWebServiceProducts_Model_GetMyPriceForASINResponse::fromXML($httpResponse['ResponseBody']);
         $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
@@ -1139,8 +1137,20 @@ class MarketplaceWebServiceProducts_Client implements MarketplaceWebServiceProdu
         }
         if ($request->isSetASINList()) {
             $ASINListgetMyPriceForASINRequest = $request->getASINList();
+            $cpt=1;
             foreach  ($ASINListgetMyPriceForASINRequest->getASIN() as $ASINASINListIndex => $ASINASINList) {
-                $parameters['ASINList' . '.' . 'ASIN' . '.'  . ($ASINASINListIndex + 1)] =  $ASINASINList;
+                if(is_array($ASINASINList) && count($ASINASINList)>0)
+                {
+                    foreach ($ASINASINList as $key => $value) {
+                        $parameters['ASINList' . '.' . 'ASIN' . '.'  . $cpt] =  $value;
+                        $cpt++;
+                    }
+                }
+                else
+                {
+                    $parameters['ASINList' . '.' . 'ASIN' . '.'  . $cpt] =  $ASINASINList;
+                    $cpt++;
+                }
             }
         }
 
